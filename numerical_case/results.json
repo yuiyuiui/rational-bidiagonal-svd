@@ -1,0 +1,1147 @@
+{
+  "package_version": "0.1.0",
+  "completed_at_utc": "2026-10-15T10:29:26.524192+00:00",
+  "environment": {
+    "python": "3.13.3",
+    "numpy": "2.5.4",
+    "mpmath": "1.3.0",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64"
+  },
+  "seed": null,
+  "randomness": "none",
+  "records": [
+    {
+      "case": "coupled2",
+      "d": [
+        2.0,
+        1.0
+      ],
+      "e": [
+        0.25
+      ],
+      "indices": [
+        0,
+        1
+      ],
+      "profile": "auto",
+      "config": {
+        "target_bits": 53,
+        "epsilon": "2^-53",
+        "requested_profile": "auto",
+        "resolved_profile": "proof",
+        "inner_bits": 191,
+        "coefficient_bits": 4080,
+        "required_kernel_bits": 220224,
+        "kernel_bits": 220224,
+        "verify": true,
+        "max_workspace_bytes": 2147483648,
+        "timeout": null,
+        "index_convention": "zero-based descending; return columns in requested order",
+        "reasons": [
+          "auto selects proof precision; diagnostic must be explicitly requested.",
+          "q=3*p+32 resolves the safe-cut reduction error.",
+          "Kernel bound is 67584+2880*p bits; no input-gap estimate is assumed."
+        ],
+        "accuracy_basis": "arithmetic_model",
+        "unit_direction_constant": 128,
+        "raw_carrier_constant": 256,
+        "squared_norm_defect_bound": "8*2^-53",
+        "backend": {
+          "precision_bits": 220224,
+          "boost_version": 108900,
+          "index_bits": 63,
+          "source_sha256": "e00c0810e6c887e2f3b0fa2f2dec67904f6b6f13db9f8344f8e33a22b846e56f"
+        },
+        "packet_parameters": [
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 220224,
+            "coefficient_bits": 4080,
+            "population": 1
+          },
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 220224,
+            "coefficient_bits": 4080,
+            "population": 1
+          }
+        ]
+      },
+      "timings": {
+        "build_seconds": 0.0046044159680604935,
+        "cache_hit": true,
+        "solve_seconds": 23.72773887508083,
+        "validation_seconds": 0.0011716249864548445,
+        "total_seconds": 23.735578207997605
+      },
+      "validation": {
+        "passed": true,
+        "C": 128,
+        "p": 53,
+        "n": 2,
+        "k": 2,
+        "triplets": [
+          {
+            "index": 0,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 1,
+            "upper_count_including_equal": 2
+          },
+          {
+            "index": 1,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 0,
+            "upper_count_including_equal": 1
+          }
+        ],
+        "orthogonality": [
+          {
+            "i": 1,
+            "j": 0,
+            "left": true,
+            "right": true
+          }
+        ],
+        "method": "exact rational inertia, sparse residuals, and normalized inner products",
+        "production_algorithm_cost": false
+      },
+      "metrics": {
+        "value_error": 1.1102230246251565e-16,
+        "left_residual": 4.440892098500626e-16,
+        "right_residual": 2.2887833992611187e-16,
+        "left_orthogonality": 6.133249271326659e-18,
+        "right_orthogonality": 3.8418571675635185e-18,
+        "squared_norm_defect": 0.0,
+        "residual_bound_raw": 1.1485710305983302e-13,
+        "orthogonality_bound_raw": 5.684341886080802e-14,
+        "norm_defect_bound": 8.881784197001252e-16,
+        "reference": "NumPy/LAPACK SVD for finite comparison; exact rational certificate separately supplied"
+      },
+      "values": [
+        2.0205875255512447,
+        0.9898111191468294
+      ],
+      "left": [
+        [
+          0.9967278667659699,
+          -0.08083043741165194
+        ],
+        [
+          0.08083043741165194,
+          0.9967278667659699
+        ]
+      ],
+      "right": [
+        [
+          0.9865723252884565,
+          -0.16332497351883454
+        ],
+        [
+          0.16332497351883454,
+          0.9865723252884565
+        ]
+      ],
+      "same_arrays_as_auto": null,
+      "workspace_plans": [
+        {
+          "n": 2,
+          "rank": 16,
+          "bits": 220224,
+          "estimated_bytes": 112665280
+        },
+        {
+          "n": 2,
+          "rank": 16,
+          "bits": 220224,
+          "estimated_bytes": 112665280
+        }
+      ]
+    },
+    {
+      "case": "coupled2",
+      "d": [
+        2.0,
+        1.0
+      ],
+      "e": [
+        0.25
+      ],
+      "indices": [
+        0,
+        1
+      ],
+      "profile": "proof",
+      "config": {
+        "target_bits": 53,
+        "epsilon": "2^-53",
+        "requested_profile": "proof",
+        "resolved_profile": "proof",
+        "inner_bits": 191,
+        "coefficient_bits": 4080,
+        "required_kernel_bits": 220224,
+        "kernel_bits": 220224,
+        "verify": true,
+        "max_workspace_bytes": 2147483648,
+        "timeout": null,
+        "index_convention": "zero-based descending; return columns in requested order",
+        "reasons": [
+          "auto selects proof precision; diagnostic must be explicitly requested.",
+          "q=3*p+32 resolves the safe-cut reduction error.",
+          "Kernel bound is 67584+2880*p bits; no input-gap estimate is assumed."
+        ],
+        "accuracy_basis": "arithmetic_model",
+        "unit_direction_constant": 128,
+        "raw_carrier_constant": 256,
+        "squared_norm_defect_bound": "8*2^-53",
+        "backend": {
+          "precision_bits": 220224,
+          "boost_version": 108900,
+          "index_bits": 63,
+          "source_sha256": "e00c0810e6c887e2f3b0fa2f2dec67904f6b6f13db9f8344f8e33a22b846e56f"
+        },
+        "packet_parameters": [
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 220224,
+            "coefficient_bits": 4080,
+            "population": 1
+          },
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 220224,
+            "coefficient_bits": 4080,
+            "population": 1
+          }
+        ]
+      },
+      "timings": {
+        "build_seconds": 0.004037500009872019,
+        "cache_hit": true,
+        "solve_seconds": 23.904538791044615,
+        "validation_seconds": 0.000608875066973269,
+        "total_seconds": 23.910859083058313
+      },
+      "validation": {
+        "passed": true,
+        "C": 128,
+        "p": 53,
+        "n": 2,
+        "k": 2,
+        "triplets": [
+          {
+            "index": 0,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 1,
+            "upper_count_including_equal": 2
+          },
+          {
+            "index": 1,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 0,
+            "upper_count_including_equal": 1
+          }
+        ],
+        "orthogonality": [
+          {
+            "i": 1,
+            "j": 0,
+            "left": true,
+            "right": true
+          }
+        ],
+        "method": "exact rational inertia, sparse residuals, and normalized inner products",
+        "production_algorithm_cost": false
+      },
+      "metrics": {
+        "value_error": 1.1102230246251565e-16,
+        "left_residual": 4.440892098500626e-16,
+        "right_residual": 2.2887833992611187e-16,
+        "left_orthogonality": 6.133249271326659e-18,
+        "right_orthogonality": 3.8418571675635185e-18,
+        "squared_norm_defect": 0.0,
+        "residual_bound_raw": 1.1485710305983302e-13,
+        "orthogonality_bound_raw": 5.684341886080802e-14,
+        "norm_defect_bound": 8.881784197001252e-16,
+        "reference": "NumPy/LAPACK SVD for finite comparison; exact rational certificate separately supplied"
+      },
+      "values": [
+        2.0205875255512447,
+        0.9898111191468294
+      ],
+      "left": [
+        [
+          0.9967278667659699,
+          -0.08083043741165194
+        ],
+        [
+          0.08083043741165194,
+          0.9967278667659699
+        ]
+      ],
+      "right": [
+        [
+          0.9865723252884565,
+          -0.16332497351883454
+        ],
+        [
+          0.16332497351883454,
+          0.9865723252884565
+        ]
+      ],
+      "same_arrays_as_auto": true,
+      "workspace_plans": [
+        {
+          "n": 2,
+          "rank": 16,
+          "bits": 220224,
+          "estimated_bytes": 112665280
+        },
+        {
+          "n": 2,
+          "rank": 16,
+          "bits": 220224,
+          "estimated_bytes": 112665280
+        }
+      ]
+    },
+    {
+      "case": "coupled2",
+      "d": [
+        2.0,
+        1.0
+      ],
+      "e": [
+        0.25
+      ],
+      "indices": [
+        0,
+        1
+      ],
+      "profile": "diagnostic",
+      "config": {
+        "target_bits": 53,
+        "epsilon": "2^-53",
+        "requested_profile": "diagnostic",
+        "resolved_profile": "diagnostic",
+        "inner_bits": 191,
+        "coefficient_bits": 4080,
+        "required_kernel_bits": 220224,
+        "kernel_bits": 4096,
+        "verify": true,
+        "max_workspace_bytes": 2147483648,
+        "timeout": null,
+        "index_convention": "zero-based descending; return columns in requested order",
+        "reasons": [
+          "auto selects proof precision; diagnostic must be explicitly requested.",
+          "q=3*p+32 resolves the safe-cut reduction error.",
+          "Kernel bound is 67584+2880*p bits; no input-gap estimate is assumed."
+        ],
+        "accuracy_basis": "diagnostic",
+        "unit_direction_constant": 128,
+        "raw_carrier_constant": 256,
+        "squared_norm_defect_bound": "8*2^-53",
+        "backend": {
+          "precision_bits": 4096,
+          "boost_version": 108900,
+          "index_bits": 63,
+          "source_sha256": "e00c0810e6c887e2f3b0fa2f2dec67904f6b6f13db9f8344f8e33a22b846e56f"
+        },
+        "packet_parameters": [
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 4096,
+            "coefficient_bits": 4080,
+            "population": 1
+          },
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 4096,
+            "coefficient_bits": 4080,
+            "population": 1
+          }
+        ]
+      },
+      "timings": {
+        "build_seconds": 0.004728499916382134,
+        "cache_hit": true,
+        "solve_seconds": 0.12923329195473343,
+        "validation_seconds": 0.0006817500106990337,
+        "total_seconds": 0.13638254208490252
+      },
+      "validation": {
+        "passed": true,
+        "C": 128,
+        "p": 53,
+        "n": 2,
+        "k": 2,
+        "triplets": [
+          {
+            "index": 0,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 1,
+            "upper_count_including_equal": 2
+          },
+          {
+            "index": 1,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 0,
+            "upper_count_including_equal": 1
+          }
+        ],
+        "orthogonality": [
+          {
+            "i": 1,
+            "j": 0,
+            "left": true,
+            "right": true
+          }
+        ],
+        "method": "exact rational inertia, sparse residuals, and normalized inner products",
+        "production_algorithm_cost": false
+      },
+      "metrics": {
+        "value_error": 1.1102230246251565e-16,
+        "left_residual": 4.440892098500626e-16,
+        "right_residual": 2.2887833992611187e-16,
+        "left_orthogonality": 6.133249271326659e-18,
+        "right_orthogonality": 3.8418571675635185e-18,
+        "squared_norm_defect": 0.0,
+        "residual_bound_raw": 1.1485710305983302e-13,
+        "orthogonality_bound_raw": 5.684341886080802e-14,
+        "norm_defect_bound": 8.881784197001252e-16,
+        "reference": "NumPy/LAPACK SVD for finite comparison; exact rational certificate separately supplied"
+      },
+      "values": [
+        2.0205875255512447,
+        0.9898111191468294
+      ],
+      "left": [
+        [
+          0.9967278667659699,
+          -0.08083043741165194
+        ],
+        [
+          0.08083043741165194,
+          0.9967278667659699
+        ]
+      ],
+      "right": [
+        [
+          0.9865723252884565,
+          -0.16332497351883454
+        ],
+        [
+          0.16332497351883454,
+          0.9865723252884565
+        ]
+      ],
+      "same_arrays_as_auto": true,
+      "workspace_plans": [
+        {
+          "n": 2,
+          "rank": 16,
+          "bits": 4096,
+          "estimated_bytes": 2223872
+        },
+        {
+          "n": 2,
+          "rank": 16,
+          "bits": 4096,
+          "estimated_bytes": 2223872
+        }
+      ]
+    },
+    {
+      "case": "rank_deficient3",
+      "d": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "e": [
+        0.125,
+        0.0
+      ],
+      "indices": [
+        0,
+        1,
+        2
+      ],
+      "profile": "auto",
+      "config": {
+        "target_bits": 53,
+        "epsilon": "2^-53",
+        "requested_profile": "auto",
+        "resolved_profile": "proof",
+        "inner_bits": 191,
+        "coefficient_bits": 4080,
+        "required_kernel_bits": 220224,
+        "kernel_bits": 220224,
+        "verify": true,
+        "max_workspace_bytes": 2147483648,
+        "timeout": null,
+        "index_convention": "zero-based descending; return columns in requested order",
+        "reasons": [
+          "auto selects proof precision; diagnostic must be explicitly requested.",
+          "q=3*p+32 resolves the safe-cut reduction error.",
+          "Kernel bound is 67584+2880*p bits; no input-gap estimate is assumed."
+        ],
+        "accuracy_basis": "arithmetic_model",
+        "unit_direction_constant": 128,
+        "raw_carrier_constant": 256,
+        "squared_norm_defect_bound": "8*2^-53",
+        "backend": {
+          "precision_bits": 220224,
+          "boost_version": 108900,
+          "index_bits": 63,
+          "source_sha256": "e00c0810e6c887e2f3b0fa2f2dec67904f6b6f13db9f8344f8e33a22b846e56f"
+        },
+        "packet_parameters": [
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 220224,
+            "coefficient_bits": 4080,
+            "population": 2
+          },
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 220224,
+            "coefficient_bits": 4080,
+            "population": 1
+          },
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 220224,
+            "coefficient_bits": 4080,
+            "population": 2
+          }
+        ]
+      },
+      "timings": {
+        "build_seconds": 0.004182375036180019,
+        "cache_hit": true,
+        "solve_seconds": 42.42697637504898,
+        "validation_seconds": 0.0007290421053767204,
+        "total_seconds": 42.43313183297869
+      },
+      "validation": {
+        "passed": true,
+        "C": 128,
+        "p": 53,
+        "n": 3,
+        "k": 3,
+        "triplets": [
+          {
+            "index": 0,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 2,
+            "upper_count_including_equal": 3
+          },
+          {
+            "index": 1,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 0,
+            "upper_count_including_equal": 2
+          },
+          {
+            "index": 2,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 0,
+            "upper_count_including_equal": 2
+          }
+        ],
+        "orthogonality": [
+          {
+            "i": 1,
+            "j": 0,
+            "left": true,
+            "right": true
+          },
+          {
+            "i": 2,
+            "j": 0,
+            "left": true,
+            "right": true
+          },
+          {
+            "i": 2,
+            "j": 1,
+            "left": true,
+            "right": true
+          }
+        ],
+        "method": "exact rational inertia, sparse residuals, and normalized inner products",
+        "production_algorithm_cost": false
+      },
+      "metrics": {
+        "value_error": 0.0,
+        "left_residual": 0.0,
+        "right_residual": 1.1188630228279524e-16,
+        "left_orthogonality": 0.0,
+        "right_orthogonality": 1.7356748300397907e-18,
+        "squared_norm_defect": 1.1102230246251565e-16,
+        "residual_bound_raw": 8.592868015318674e-14,
+        "orthogonality_bound_raw": 8.526512829121202e-14,
+        "norm_defect_bound": 8.881784197001252e-16,
+        "reference": "NumPy/LAPACK SVD for finite comparison; exact rational certificate separately supplied"
+      },
+      "values": [
+        1.0077822185373186,
+        0.0,
+        0.0
+      ],
+      "left": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "right": [
+        [
+          0.9922778767136676,
+          0.0,
+          -0.12403473458920845
+        ],
+        [
+          0.12403473458920845,
+          0.0,
+          0.9922778767136676
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "same_arrays_as_auto": null,
+      "workspace_plans": [
+        {
+          "n": 3,
+          "rank": 16,
+          "bits": 220224,
+          "estimated_bytes": 131957280
+        },
+        {
+          "n": 3,
+          "rank": 16,
+          "bits": 220224,
+          "estimated_bytes": 131957280
+        },
+        {
+          "n": 3,
+          "rank": 16,
+          "bits": 220224,
+          "estimated_bytes": 131957280
+        }
+      ]
+    },
+    {
+      "case": "rank_deficient3",
+      "d": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "e": [
+        0.125,
+        0.0
+      ],
+      "indices": [
+        0,
+        1,
+        2
+      ],
+      "profile": "proof",
+      "config": {
+        "target_bits": 53,
+        "epsilon": "2^-53",
+        "requested_profile": "proof",
+        "resolved_profile": "proof",
+        "inner_bits": 191,
+        "coefficient_bits": 4080,
+        "required_kernel_bits": 220224,
+        "kernel_bits": 220224,
+        "verify": true,
+        "max_workspace_bytes": 2147483648,
+        "timeout": null,
+        "index_convention": "zero-based descending; return columns in requested order",
+        "reasons": [
+          "auto selects proof precision; diagnostic must be explicitly requested.",
+          "q=3*p+32 resolves the safe-cut reduction error.",
+          "Kernel bound is 67584+2880*p bits; no input-gap estimate is assumed."
+        ],
+        "accuracy_basis": "arithmetic_model",
+        "unit_direction_constant": 128,
+        "raw_carrier_constant": 256,
+        "squared_norm_defect_bound": "8*2^-53",
+        "backend": {
+          "precision_bits": 220224,
+          "boost_version": 108900,
+          "index_bits": 63,
+          "source_sha256": "e00c0810e6c887e2f3b0fa2f2dec67904f6b6f13db9f8344f8e33a22b846e56f"
+        },
+        "packet_parameters": [
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 220224,
+            "coefficient_bits": 4080,
+            "population": 2
+          },
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 220224,
+            "coefficient_bits": 4080,
+            "population": 1
+          },
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 220224,
+            "coefficient_bits": 4080,
+            "population": 2
+          }
+        ]
+      },
+      "timings": {
+        "build_seconds": 0.0038325830828398466,
+        "cache_hit": true,
+        "solve_seconds": 42.96900595794432,
+        "validation_seconds": 0.0008421249222010374,
+        "total_seconds": 42.975322040962055
+      },
+      "validation": {
+        "passed": true,
+        "C": 128,
+        "p": 53,
+        "n": 3,
+        "k": 3,
+        "triplets": [
+          {
+            "index": 0,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 2,
+            "upper_count_including_equal": 3
+          },
+          {
+            "index": 1,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 0,
+            "upper_count_including_equal": 2
+          },
+          {
+            "index": 2,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 0,
+            "upper_count_including_equal": 2
+          }
+        ],
+        "orthogonality": [
+          {
+            "i": 1,
+            "j": 0,
+            "left": true,
+            "right": true
+          },
+          {
+            "i": 2,
+            "j": 0,
+            "left": true,
+            "right": true
+          },
+          {
+            "i": 2,
+            "j": 1,
+            "left": true,
+            "right": true
+          }
+        ],
+        "method": "exact rational inertia, sparse residuals, and normalized inner products",
+        "production_algorithm_cost": false
+      },
+      "metrics": {
+        "value_error": 0.0,
+        "left_residual": 0.0,
+        "right_residual": 1.1188630228279524e-16,
+        "left_orthogonality": 0.0,
+        "right_orthogonality": 1.7356748300397907e-18,
+        "squared_norm_defect": 1.1102230246251565e-16,
+        "residual_bound_raw": 8.592868015318674e-14,
+        "orthogonality_bound_raw": 8.526512829121202e-14,
+        "norm_defect_bound": 8.881784197001252e-16,
+        "reference": "NumPy/LAPACK SVD for finite comparison; exact rational certificate separately supplied"
+      },
+      "values": [
+        1.0077822185373186,
+        0.0,
+        0.0
+      ],
+      "left": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "right": [
+        [
+          0.9922778767136676,
+          0.0,
+          -0.12403473458920845
+        ],
+        [
+          0.12403473458920845,
+          0.0,
+          0.9922778767136676
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "same_arrays_as_auto": true,
+      "workspace_plans": [
+        {
+          "n": 3,
+          "rank": 16,
+          "bits": 220224,
+          "estimated_bytes": 131957280
+        },
+        {
+          "n": 3,
+          "rank": 16,
+          "bits": 220224,
+          "estimated_bytes": 131957280
+        },
+        {
+          "n": 3,
+          "rank": 16,
+          "bits": 220224,
+          "estimated_bytes": 131957280
+        }
+      ]
+    },
+    {
+      "case": "rank_deficient3",
+      "d": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "e": [
+        0.125,
+        0.0
+      ],
+      "indices": [
+        0,
+        1,
+        2
+      ],
+      "profile": "diagnostic",
+      "config": {
+        "target_bits": 53,
+        "epsilon": "2^-53",
+        "requested_profile": "diagnostic",
+        "resolved_profile": "diagnostic",
+        "inner_bits": 191,
+        "coefficient_bits": 4080,
+        "required_kernel_bits": 220224,
+        "kernel_bits": 4096,
+        "verify": true,
+        "max_workspace_bytes": 2147483648,
+        "timeout": null,
+        "index_convention": "zero-based descending; return columns in requested order",
+        "reasons": [
+          "auto selects proof precision; diagnostic must be explicitly requested.",
+          "q=3*p+32 resolves the safe-cut reduction error.",
+          "Kernel bound is 67584+2880*p bits; no input-gap estimate is assumed."
+        ],
+        "accuracy_basis": "diagnostic",
+        "unit_direction_constant": 128,
+        "raw_carrier_constant": 256,
+        "squared_norm_defect_bound": "8*2^-53",
+        "backend": {
+          "precision_bits": 4096,
+          "boost_version": 108900,
+          "index_bits": 63,
+          "source_sha256": "e00c0810e6c887e2f3b0fa2f2dec67904f6b6f13db9f8344f8e33a22b846e56f"
+        },
+        "packet_parameters": [
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 4096,
+            "coefficient_bits": 4080,
+            "population": 2
+          },
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 4096,
+            "coefficient_bits": 4080,
+            "population": 1
+          },
+          {
+            "J": 3,
+            "rank": 16,
+            "kernel_bits": 4096,
+            "coefficient_bits": 4080,
+            "population": 2
+          }
+        ]
+      },
+      "timings": {
+        "build_seconds": 0.005078790942206979,
+        "cache_hit": true,
+        "solve_seconds": 0.21157391602173448,
+        "validation_seconds": 0.0006762909470126033,
+        "total_seconds": 0.2186940829269588
+      },
+      "validation": {
+        "passed": true,
+        "C": 128,
+        "p": 53,
+        "n": 3,
+        "k": 3,
+        "triplets": [
+          {
+            "index": 0,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 2,
+            "upper_count_including_equal": 3
+          },
+          {
+            "index": 1,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 0,
+            "upper_count_including_equal": 2
+          },
+          {
+            "index": 2,
+            "checks": {
+              "nonnegative": true,
+              "norms": true,
+              "left_residual_after_unitization": true,
+              "right_residual_after_unitization": true,
+              "ordered_value": true
+            },
+            "lower_count": 0,
+            "upper_count_including_equal": 2
+          }
+        ],
+        "orthogonality": [
+          {
+            "i": 1,
+            "j": 0,
+            "left": true,
+            "right": true
+          },
+          {
+            "i": 2,
+            "j": 0,
+            "left": true,
+            "right": true
+          },
+          {
+            "i": 2,
+            "j": 1,
+            "left": true,
+            "right": true
+          }
+        ],
+        "method": "exact rational inertia, sparse residuals, and normalized inner products",
+        "production_algorithm_cost": false
+      },
+      "metrics": {
+        "value_error": 0.0,
+        "left_residual": 0.0,
+        "right_residual": 1.1188630228279524e-16,
+        "left_orthogonality": 0.0,
+        "right_orthogonality": 1.7356748300397907e-18,
+        "squared_norm_defect": 1.1102230246251565e-16,
+        "residual_bound_raw": 8.592868015318674e-14,
+        "orthogonality_bound_raw": 8.526512829121202e-14,
+        "norm_defect_bound": 8.881784197001252e-16,
+        "reference": "NumPy/LAPACK SVD for finite comparison; exact rational certificate separately supplied"
+      },
+      "values": [
+        1.0077822185373186,
+        0.0,
+        0.0
+      ],
+      "left": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "right": [
+        [
+          0.9922778767136676,
+          0.0,
+          -0.12403473458920845
+        ],
+        [
+          0.12403473458920845,
+          0.0,
+          0.9922778767136676
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "same_arrays_as_auto": true,
+      "workspace_plans": [
+        {
+          "n": 3,
+          "rank": 16,
+          "bits": 4096,
+          "estimated_bytes": 2604672
+        },
+        {
+          "n": 3,
+          "rank": 16,
+          "bits": 4096,
+          "estimated_bytes": 2604672
+        },
+        {
+          "n": 3,
+          "rank": 16,
+          "bits": 4096,
+          "estimated_bytes": 2604672
+        }
+      ]
+    }
+  ],
+  "scope": "Fixed small cases; timings are observations, not asymptotic or superiority evidence."
+}
