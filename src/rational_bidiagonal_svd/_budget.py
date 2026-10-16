@@ -3,6 +3,7 @@ from __future__ import annotations
 from fractions import Fraction as F
 from dataclasses import dataclass, asdict
 from math import isqrt
+from functools import lru_cache
 
 def ceil_log2_int(x: int) -> int:
     if not isinstance(x,int) or x<1: raise ValueError('positive integer required')
@@ -61,11 +62,12 @@ def allocate_gram(n:int,q:int)->Budget:
     ell=224+6*q
     return Budget(q,n,20+6*q,1024+16*q,768+16*q,1024+160*ell,ell,J,1<<(J+1),12*q)
 
-def checks(b):
+@lru_cache(maxsize=64)
+def _check_items(b):
     q,n=b.p,b.n;e=b.epsilon;d=b.delta;B=pow2(b.generator_log2_bound)
     us=pow2(-b.supply_budget_bits);uc=pow2(-b.scan_bits);uco=pow2(-b.coefficient_bits)
     f=4*n**3
-    return {
+    return tuple({
       'domain':n*e<=F(1,64),'J_le_19':b.sign_steps_max<=19,'rank_le_2_20':b.rank_max<=1<<20,
       'real_pole_bound':F(1,4096*3**b.sign_steps_max)>pow2(-44),
       'coefficient_operator':uco*pow2(136)*e**-2<=d/256,
@@ -82,7 +84,11 @@ def checks(b):
       'scalar_downward':16*(b.sign_steps_max+1)*us*512*n<d/F(64),
       'text_export_100_digits':F(10)**-99*n <=n*e/F(4096),
       'twice_greedy_bound':factor_two_trace_bound(n,n,n)<=f,
-    }
+    }.items())
+
+def checks(b):
+    """Return detached checks for an immutable budget; cache booleans only."""
+    return dict(_check_items(b))
 
 def reduction_checks(n,p):
     eps=pow2(-p);D=n*eps;xi=n*eps**3/pow2(20);g=D*D/(64*n)

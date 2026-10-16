@@ -14,6 +14,7 @@ independent human review, formal verification or upstream acceptance.
 
 Python >=3.11, a 64-bit C++17 compiler, and Boost >=1.89 headers are required.
 The tested backend is Boost 1.89.0. No runtime network download is performed.
+Linux and macOS are supported; Windows is currently unsupported (POSIX build lock).
 
 ```sh
 python -m venv .venv
@@ -117,3 +118,12 @@ python numerical_case/figures.py --input numerical_case/results.json
 The small default proof tests may take minutes. Cache compilation is protected
 by an OS lock; API calls within one process are serialized around mpmath's
 precision context. See the API for workspace admission and timeout controls.
+
+## Engineering and contribution evidence
+
+The [paired optimization benchmark](bench/README.md) separates the unchanged
+220224-bit default from 4096-bit diagnostics and records exact instance checks,
+independent residuals, time distributions and memory. See
+[release readiness](docs/RELEASE_READINESS.md), [contribution guidance](CONTRIBUTING.md)
+and [citation metadata](CITATION.cff). These measurements do not imply practical
+superiority over optimized dense or bidiagonal LAPACK implementations.

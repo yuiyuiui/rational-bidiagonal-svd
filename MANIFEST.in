@@ -1,0 +1,7 @@
+include LICENSE CITATION.cff CONTRIBUTING.md CHANGELOG.md requirements-reproduce.txt
+recursive-include docs *.md
+recursive-include tests *.py
+recursive-include bench *.py *.md *.json
+recursive-include numerical_case *.py *.md *.json *.svg *.pdf
+prune numerical_case/raw
+global-exclude __pycache__ *.py[cod] .DS_Store

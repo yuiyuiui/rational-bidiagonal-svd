@@ -50,7 +50,11 @@ class RationalGramOracle:
         bits=self.diagnostic_bits or b.scan_bits
         exe=self.backend
         if exe is None or not exe.exists():raise FileNotFoundError(f'build kernel at {bits} bits')
-        vals=[None]*len(indices);vec=[None]*len(indices);groups=[];cache={}
+        vals=[None]*len(indices);vec=[None]*len(indices);groups=[]
+        # Packet planning has already computed these exact brackets. Reuse them
+        # for neighbouring packet distances instead of repeating Sturm searches.
+        cache={j:(F(int(rec['lo_grid']),g.Q),F(int(rec['hi_grid']),g.Q))
+               for j,rec in zip(indices,plan['locations'])}
         def locate(j):
             if j not in cache:
                 _,rec=g.locate(j);cache[j]=(F(int(rec['lo_grid']),g.Q),F(int(rec['hi_grid']),g.Q))

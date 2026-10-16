@@ -48,6 +48,7 @@ struct Z{
 };
 using V=std::vector<Z>;
 R az(const Z&z){return sqrt(z.re*z.re+z.im*z.im);}
+R norm_squared(const Z&z){return z.re*z.re+z.im*z.im;}
 Z dot(const Z*a,const Z*b,Index r){Z s;for(Index j=0;j<r;++j)s+=a[j]*b[j];return s;}
 Z dot(const V&a,const V&b){return dot(a.data(),b.data(),(Index)a.size());}
 V mv(const V&M,const Z*x,Index r){V y(r);for(Index i=0;i<r;++i)y[i]=dot(M.data()+i*r,x,r);return y;}
@@ -61,11 +62,13 @@ struct Kernel{
  R minimum_damping_ratio=2,minimum_twist_damping_ratio=2;
  boost::multiprecision::cpp_int supply_divisions=0;
  R state_peak=0,state_derivative_peak=0,backward_peak=0,backward_derivative_peak=0;
- void peak(const V&M,R&v){R mm=0;for(const auto&x:M)mm=std::max(mm,R(x.re*x.re+x.im*x.im));v=std::max(v,sqrt(mm));}
+ // Diagnostic maxima accumulate squared magnitudes. A monotone square root
+ // is needed only when exporting the maximum, never for every visited entry.
+ void peak(const V&M,R&v){for(const auto&x:M)v=std::max(v,norm_squared(x));}
  Kernel(Index nn,Index rr,std::vector<R>d,std::vector<R>e,R c,V poles,V weights):n(nn),r(rr),a(n,Z(c)),U(checked_count(n,r)),Vgen(checked_count(n,r),Z(1)),P(checked_count(n,r),Z(1)),pin(n,false),td(d),te(e){
   for(Index j=0;j<r;++j){V piv(n),g(n);
    for(Index i=0;i<n;++i){piv[i]=Z(d[i])-poles[j];if(i)piv[i]-=Z(e[i-1]*e[i-1])/piv[i-1];
-    R ap=az(piv[i]);if(ap==0)throw std::runtime_error("zero resolvent pivot");if(ap<min_resolvent_pivot)min_resolvent_pivot=ap;++resolvent_rows;}
+    R ap=norm_squared(piv[i]);if(ap==0)throw std::runtime_error("zero resolvent pivot");if(ap<min_resolvent_pivot)min_resolvent_pivot=ap;++resolvent_rows;}
    for(Index i=0;i<n;++i){
      R dr=-piv[i].im/poles[j].im;
      minimum_damping_ratio=std::min(minimum_damping_ratio,dr);
@@ -91,7 +94,7 @@ struct Kernel{
    for(Index i=n-2;i>=0;--i){Z t=-Z(e[i])/piv[i];g[i]=Z(1)/piv[i]+t*t*g[i+1];++resolvent_rows;}
 #endif
    for(Index i=0;i<n;++i){U[i*r+j]=weights[j]*g[i];a[i]+=U[i*r+j];if(i)P[i*r+j]=-Z(e[i-1])/piv[i-1];
-    max_generator=std::max(max_generator,az(U[i*r+j]));max_transition=std::max(max_transition,az(P[i*r+j]));}
+    max_generator=std::max(max_generator,norm_squared(U[i*r+j]));max_transition=std::max(max_transition,norm_squared(P[i*r+j]));}
   }
   // Energy gauge: s_i^2 = 1 + |phi_i|^2 s_(i-1)^2.
   // U_i <- U_i*s_i; V_i <- V_i/s_i;
@@ -109,9 +112,12 @@ struct Kernel{
       U[i*r+j]=U[i*r+j]*Z(sc);Vgen[i*r+j]=Z(1/sc);
 #endif
       max_scale=std::max(max_scale,sc);min_scale=std::min(min_scale,sc);
-      balanced_max_transition=std::max(balanced_max_transition,az(P[i*r+j]));prev=sc;
+      balanced_max_transition=std::max(balanced_max_transition,norm_squared(P[i*r+j]));prev=sc;
     }
   }
+  max_generator=sqrt(max_generator);max_transition=sqrt(max_transition);
+  balanced_max_transition=sqrt(balanced_max_transition);
+  min_resolvent_pivot=sqrt(min_resolvent_pivot);
  }
  struct Factors{V d,dd,b,bd,w,wd,rd,hd;Factors(Index n,Index r):d(n),dd(n),b(checked_count(n,r),Z(1)),bd(checked_count(n,r)),w(checked_count(n,r)),wd(checked_count(n,r)),rd(n),hd(n){} };
  Factors scores(){
@@ -200,10 +206,10 @@ struct Kernel{
   o<<",\"balanced_max_transition\":";jnum(o,balanced_max_transition);
   o<<",\"maximum_scale\":";jnum(o,max_scale);
   o<<",\"minimum_scale\":";jnum(o,min_scale);
-  o<<",\"forward_state_peak\":";jnum(o,state_peak);
-  o<<",\"forward_derivative_peak\":";jnum(o,state_derivative_peak);
-  o<<",\"backward_state_peak\":";jnum(o,backward_peak);
-  o<<",\"backward_derivative_peak\":";jnum(o,backward_derivative_peak);
+  o<<",\"forward_state_peak\":";jnum(o,sqrt(state_peak));
+  o<<",\"forward_derivative_peak\":";jnum(o,sqrt(state_derivative_peak));
+  o<<",\"backward_state_peak\":";jnum(o,sqrt(backward_peak));
+  o<<",\"backward_derivative_peak\":";jnum(o,sqrt(backward_derivative_peak));
   o<<"}\n";
  }
 };
