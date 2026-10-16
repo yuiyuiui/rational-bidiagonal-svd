@@ -1,0 +1,225 @@
+{
+  "format_version": 1,
+  "preflight": "ASSESSED_RUN",
+  "evidence": "CLAIM_FACING",
+  "placement": "LOCAL_EXECUTION; one worker and one BLAS/OpenMP thread",
+  "python": "3.13.3",
+  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "mpmath": "1.3.0",
+    "sympy": "1.14.0",
+    "python-flint": "0.8.0"
+  },
+  "timer": "perf_counter; validation and profiling excluded from timings",
+  "memory": "Fresh-worker absolute peak RSS after timing includes imports, inputs, outputs and validation. Child RSS is the largest completed subprocess high-water mark, not a simultaneous aggregate. Python traced peak is one separate call and excludes untraced native allocations.",
+  "cost": "Setup/import, first call and warm public calls are separated. Internal caches may be reused.",
+  "results": [
+    {
+      "case": "small",
+      "settings": {
+        "n": 2,
+        "profile": "diagnostic",
+        "target_bits": 53,
+        "verify": true,
+        "first_build_seconds": 0.0034851250238716602,
+        "first_backend_cache_hit": true,
+        "kernel_bits": 4096
+      },
+      "validation": {
+        "passed": true,
+        "exact_instance_certificate": true,
+        "array_sha256": "54ac8f36f98109d157235725fe1d23c4b6a03f8c40922966add62b2bd567d432",
+        "maximum_residual": 4.440892098500626e-16
+      },
+      "source_sha256": "0e42032a11a82abe8cdf50a5f2917f440d1f54c0b96aa16edf7b1e827e84b362",
+      "setup_seconds": 0.029064000002108514,
+      "first_call_seconds": 0.10491479199845344,
+      "warm_seconds": [
+        0.09935054194647819,
+        0.09837141702882946,
+        0.09974441595841199
+      ],
+      "median_seconds": 0.09935054194647819,
+      "minimum_seconds": 0.09837141702882946,
+      "maximum_seconds": 0.09974441595841199,
+      "python_traced_peak_bytes": 3807074,
+      "fresh_worker_peak_rss_bytes": 45383680,
+      "largest_child_peak_rss_bytes": 3063808,
+      "profile": "         46208 function calls (46086 primitive calls) in 0.106 seconds\n\n   Ordered by: cumulative time\n   List reduced from 552 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.106    0.106 core_cases.py:19(call)\n        1    0.000    0.000    0.106    0.106 api.py:146(selected_svd)\n        1    0.000    0.000    0.101    0.101 _reduction.py:67(solve)\n        1    0.000    0.000    0.098    0.098 _gram.py:40(__call__)\n        4    0.012    0.003    0.042    0.010 _spectral_grid.py:49(locate)\n     1584    0.005    0.000    0.030    0.000 _spectral_grid.py:17(count)\n        3    0.000    0.000    0.025    0.008 subprocess.py:512(run)\n     2151    0.024    0.000    0.024    0.000 {built-in method math.gcd}\n        1    0.000    0.000    0.021    0.021 _budget.py:64(checks)\n        3    0.000    0.000    0.021    0.007 subprocess.py:1178(communicate)\n        3    0.000    0.000    0.021    0.007 subprocess.py:2072(_communicate)\n        1    0.000    0.000    0.021    0.021 _gram.py:21(packet_plan)\n        2    0.000    0.000    0.021    0.011 _gram.py:54(locate)\n        4    0.000    0.000    0.021    0.005 selectors.py:385(select)\n\n\n",
+      "implementation": "baseline"
+    },
+    {
+      "case": "small",
+      "settings": {
+        "n": 2,
+        "profile": "diagnostic",
+        "target_bits": 53,
+        "verify": true,
+        "first_build_seconds": 0.003397249965928495,
+        "first_backend_cache_hit": true,
+        "kernel_bits": 4096
+      },
+      "validation": {
+        "passed": true,
+        "exact_instance_certificate": true,
+        "array_sha256": "54ac8f36f98109d157235725fe1d23c4b6a03f8c40922966add62b2bd567d432",
+        "maximum_residual": 4.440892098500626e-16
+      },
+      "source_sha256": "145ca6219f6e2cdecace6d922a618f40be54869a95a5e57f4929a3bc7b3f5c21",
+      "setup_seconds": 0.029302749899215996,
+      "first_call_seconds": 0.07949208398349583,
+      "warm_seconds": [
+        0.055643207975663245,
+        0.05540154199115932,
+        0.05443625000771135
+      ],
+      "median_seconds": 0.05540154199115932,
+      "minimum_seconds": 0.05443625000771135,
+      "maximum_seconds": 0.055643207975663245,
+      "python_traced_peak_bytes": 3770016,
+      "fresh_worker_peak_rss_bytes": 44449792,
+      "largest_child_peak_rss_bytes": 3031040,
+      "profile": "         32079 function calls (31989 primitive calls) in 0.066 seconds\n\n   Ordered by: cumulative time\n   List reduced from 544 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.066    0.066 core_cases.py:19(call)\n        1    0.000    0.000    0.066    0.066 api.py:146(selected_svd)\n        1    0.000    0.000    0.059    0.059 _reduction.py:67(solve)\n        1    0.000    0.000    0.056    0.056 _gram.py:40(__call__)\n        3    0.000    0.000    0.025    0.008 subprocess.py:512(run)\n        1    0.000    0.000    0.022    0.022 _gram.py:21(packet_plan)\n        2    0.006    0.003    0.022    0.011 _spectral_grid.py:49(locate)\n        3    0.000    0.000    0.021    0.007 subprocess.py:1178(communicate)\n        3    0.000    0.000    0.020    0.007 subprocess.py:2072(_communicate)\n        4    0.000    0.000    0.020    0.005 selectors.py:385(select)\n        4    0.020    0.005    0.020    0.005 {method 'poll' of 'select.poll' objects}\n      800    0.003    0.000    0.016    0.000 _spectral_grid.py:17(count)\n      886    0.007    0.000    0.007    0.000 {built-in method builtins.divmod}\n      806    0.000    0.000    0.006    0.000 _spectral_grid.py:5(nearest)\n\n\n",
+      "implementation": "candidate"
+    },
+    {
+      "case": "medium",
+      "settings": {
+        "n": 3,
+        "profile": "diagnostic",
+        "target_bits": 53,
+        "verify": true,
+        "first_build_seconds": 0.003555250004865229,
+        "first_backend_cache_hit": true,
+        "kernel_bits": 4096
+      },
+      "validation": {
+        "passed": true,
+        "exact_instance_certificate": true,
+        "array_sha256": "df3f1ddb5b7c8ff39a72264ddbc31c4db0b5753789531c8288295cf76e68f32d",
+        "maximum_residual": 0.0
+      },
+      "source_sha256": "145ca6219f6e2cdecace6d922a618f40be54869a95a5e57f4929a3bc7b3f5c21",
+      "setup_seconds": 0.029190083034336567,
+      "first_call_seconds": 0.14414983394090086,
+      "warm_seconds": [
+        0.1195468750083819,
+        0.11952308309264481,
+        0.1189664580160752
+      ],
+      "median_seconds": 0.11952308309264481,
+      "minimum_seconds": 0.1189664580160752,
+      "maximum_seconds": 0.1195468750083819,
+      "python_traced_peak_bytes": 5663119,
+      "fresh_worker_peak_rss_bytes": 46907392,
+      "largest_child_peak_rss_bytes": 3244032,
+      "profile": "         83469 function calls (83324 primitive calls) in 0.132 seconds\n\n   Ordered by: cumulative time\n   List reduced from 544 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.132    0.132 core_cases.py:19(call)\n        1    0.000    0.000    0.132    0.132 api.py:146(selected_svd)\n        1    0.001    0.001    0.126    0.126 _reduction.py:67(solve)\n        2    0.001    0.000    0.122    0.061 _gram.py:40(__call__)\n        6    0.018    0.003    0.056    0.009 _spectral_grid.py:49(locate)\n        4    0.000    0.000    0.049    0.012 subprocess.py:512(run)\n        2    0.000    0.000    0.049    0.024 _gram.py:21(packet_plan)\n        4    0.000    0.000    0.044    0.011 subprocess.py:1178(communicate)\n        4    0.000    0.000    0.044    0.011 subprocess.py:2072(_communicate)\n        6    0.000    0.000    0.044    0.007 selectors.py:385(select)\n        6    0.044    0.007    0.044    0.007 {method 'poll' of 'select.poll' objects}\n     2388    0.007    0.000    0.038    0.000 _spectral_grid.py:17(count)\n     2425    0.013    0.000    0.013    0.000 fractions.py:427(__str__)\n     4902    0.010    0.000    0.010    0.000 {built-in method builtins.divmod}\n\n\n",
+      "implementation": "candidate"
+    },
+    {
+      "case": "medium",
+      "settings": {
+        "n": 3,
+        "profile": "diagnostic",
+        "target_bits": 53,
+        "verify": true,
+        "first_build_seconds": 0.0032738340087234974,
+        "first_backend_cache_hit": true,
+        "kernel_bits": 4096
+      },
+      "validation": {
+        "passed": true,
+        "exact_instance_certificate": true,
+        "array_sha256": "df3f1ddb5b7c8ff39a72264ddbc31c4db0b5753789531c8288295cf76e68f32d",
+        "maximum_residual": 0.0
+      },
+      "source_sha256": "0e42032a11a82abe8cdf50a5f2917f440d1f54c0b96aa16edf7b1e827e84b362",
+      "setup_seconds": 0.029167291009798646,
+      "first_call_seconds": 0.1884807919850573,
+      "warm_seconds": [
+        0.18656025000382215,
+        0.18753466592170298,
+        0.18758245802018791
+      ],
+      "median_seconds": 0.18753466592170298,
+      "minimum_seconds": 0.18656025000382215,
+      "maximum_seconds": 0.18758245802018791,
+      "python_traced_peak_bytes": 5700108,
+      "fresh_worker_peak_rss_bytes": 47955968,
+      "largest_child_peak_rss_bytes": 3276800,
+      "profile": "         103060 function calls (102851 primitive calls) in 0.201 seconds\n\n   Ordered by: cumulative time\n   List reduced from 552 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.201    0.201 core_cases.py:19(call)\n        1    0.000    0.000    0.201    0.201 api.py:146(selected_svd)\n        1    0.001    0.001    0.195    0.195 _reduction.py:67(solve)\n        2    0.001    0.000    0.192    0.096 _gram.py:40(__call__)\n        8    0.024    0.003    0.078    0.010 _spectral_grid.py:49(locate)\n     3172    0.010    0.000    0.054    0.000 _spectral_grid.py:17(count)\n        4    0.000    0.000    0.054    0.013 subprocess.py:512(run)\n     4247    0.049    0.000    0.049    0.000 {built-in method math.gcd}\n        2    0.000    0.000    0.049    0.024 _gram.py:21(packet_plan)\n        4    0.000    0.000    0.048    0.012 subprocess.py:1178(communicate)\n        4    0.000    0.000    0.048    0.012 subprocess.py:2072(_communicate)\n        5    0.000    0.000    0.048    0.010 selectors.py:385(select)\n        5    0.048    0.010    0.048    0.010 {method 'poll' of 'select.poll' objects}\n        2    0.000    0.000    0.043    0.022 _budget.py:64(checks)\n\n\n",
+      "implementation": "baseline"
+    },
+    {
+      "case": "large",
+      "settings": {
+        "n": 2,
+        "profile": "auto",
+        "target_bits": 53,
+        "verify": true,
+        "first_build_seconds": 0.0034479579189792275,
+        "first_backend_cache_hit": true,
+        "kernel_bits": 220224
+      },
+      "validation": {
+        "passed": true,
+        "exact_instance_certificate": true,
+        "array_sha256": "54ac8f36f98109d157235725fe1d23c4b6a03f8c40922966add62b2bd567d432",
+        "maximum_residual": 4.440892098500626e-16
+      },
+      "source_sha256": "0e42032a11a82abe8cdf50a5f2917f440d1f54c0b96aa16edf7b1e827e84b362",
+      "setup_seconds": 0.02887062495574355,
+      "first_call_seconds": 21.094873124966398,
+      "warm_seconds": [
+        21.28218266600743,
+        21.533054541097954,
+        21.68982670805417
+      ],
+      "median_seconds": 21.533054541097954,
+      "minimum_seconds": 21.28218266600743,
+      "maximum_seconds": 21.68982670805417,
+      "python_traced_peak_bytes": 3807029,
+      "fresh_worker_peak_rss_bytes": 45252608,
+      "largest_child_peak_rss_bytes": 51265536,
+      "profile": "         46209 function calls (46087 primitive calls) in 21.986 seconds\n\n   Ordered by: cumulative time\n   List reduced from 552 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000   21.986   21.986 core_cases.py:19(call)\n        1    0.000    0.000   21.986   21.986 api.py:146(selected_svd)\n        1    0.000    0.000   21.979   21.979 _reduction.py:67(solve)\n        1    0.000    0.000   21.976   21.976 _gram.py:40(__call__)\n        3    0.000    0.000   21.898    7.299 subprocess.py:512(run)\n        3    0.000    0.000   21.893    7.298 subprocess.py:1178(communicate)\n        3    0.000    0.000   21.893    7.298 subprocess.py:2072(_communicate)\n        4    0.000    0.000   21.892    5.473 selectors.py:385(select)\n        4   21.892    5.473   21.892    5.473 {method 'poll' of 'select.poll' objects}\n        4    0.013    0.003    0.045    0.011 _spectral_grid.py:49(locate)\n     1584    0.005    0.000    0.032    0.000 _spectral_grid.py:17(count)\n     2151    0.026    0.000    0.026    0.000 {built-in method math.gcd}\n        1    0.000    0.000    0.023    0.023 _budget.py:64(checks)\n        1    0.000    0.000    0.023    0.023 _gram.py:21(packet_plan)\n\n\n",
+      "implementation": "baseline"
+    },
+    {
+      "case": "large",
+      "settings": {
+        "n": 2,
+        "profile": "auto",
+        "target_bits": 53,
+        "verify": true,
+        "first_build_seconds": 0.003822166007012129,
+        "first_backend_cache_hit": true,
+        "kernel_bits": 220224
+      },
+      "validation": {
+        "passed": true,
+        "exact_instance_certificate": true,
+        "array_sha256": "54ac8f36f98109d157235725fe1d23c4b6a03f8c40922966add62b2bd567d432",
+        "maximum_residual": 4.440892098500626e-16
+      },
+      "source_sha256": "145ca6219f6e2cdecace6d922a618f40be54869a95a5e57f4929a3bc7b3f5c21",
+      "setup_seconds": 0.0315279170172289,
+      "first_call_seconds": 18.479194332961924,
+      "warm_seconds": [
+        18.410969290998764,
+        18.40337450010702,
+        18.422590625006706
+      ],
+      "median_seconds": 18.410969290998764,
+      "minimum_seconds": 18.40337450010702,
+      "maximum_seconds": 18.422590625006706,
+      "python_traced_peak_bytes": 3770022,
+      "fresh_worker_peak_rss_bytes": 47054848,
+      "largest_child_peak_rss_bytes": 51806208,
+      "profile": "         32080 function calls (31990 primitive calls) in 18.453 seconds\n\n   Ordered by: cumulative time\n   List reduced from 544 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000   18.453   18.453 core_cases.py:19(call)\n        1    0.000    0.000   18.453   18.453 api.py:146(selected_svd)\n        1    0.000    0.000   18.447   18.447 _reduction.py:67(solve)\n        1    0.000    0.000   18.444   18.444 _gram.py:40(__call__)\n        3    0.000    0.000   18.412    6.137 subprocess.py:512(run)\n        3    0.000    0.000   18.407    6.136 subprocess.py:1178(communicate)\n        3    0.000    0.000   18.407    6.136 subprocess.py:2072(_communicate)\n        4    0.000    0.000   18.407    4.602 selectors.py:385(select)\n        4   18.407    4.602   18.407    4.602 {method 'poll' of 'select.poll' objects}\n        1    0.000    0.000    0.022    0.022 _gram.py:21(packet_plan)\n        2    0.006    0.003    0.022    0.011 _spectral_grid.py:49(locate)\n      800    0.003    0.000    0.016    0.000 _spectral_grid.py:17(count)\n      886    0.007    0.000    0.007    0.000 {built-in method builtins.divmod}\n      806    0.000    0.000    0.006    0.000 _spectral_grid.py:5(nearest)\n\n\n",
+      "implementation": "candidate"
+    }
+  ]
+}
